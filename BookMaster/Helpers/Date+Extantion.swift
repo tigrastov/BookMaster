@@ -9,7 +9,7 @@ import Foundation
 
 extension Date{
     
-    var isTooday: Bool{Calendar.current.isDateInToday(self)}
+    var isToday: Bool{Calendar.current.isDateInToday(self)}
     
     var isTheSameHour: Bool{Calendar.current.compare(self, to: Date(), toGranularity: .hour) == .orderedSame}
     var isThePastHour: Bool{Calendar.current.compare(self, to: Date(), toGranularity: .hour) == .orderedAscending}
@@ -20,7 +20,7 @@ extension Date{
         formatter.dateFormat = format
         return formatter.string(from: self)
     }
-    func fethWeek(_ date: Date)->[WeekDay]{
+    func fethWeek(_ date: Date = Date())->[WeekDay]{
         let calendar = Calendar.current
         let startOfDate = calendar.startOfDay(for: date)
         var week: [WeekDay] = []
